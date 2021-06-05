@@ -14,7 +14,12 @@ const App = () => {
       <div>
         <h4>draft quotes</h4>
         <div>
-          <p>existing quote 1</p>
+          <div>
+            <p>existing quote 1</p>
+            <p>to: </p>
+            <p>amount: </p>
+            <p>contact: </p>
+          </div>
           <button>edit quote</button>
           <button>delete quote</button>
           <button>finalise and send</button>
