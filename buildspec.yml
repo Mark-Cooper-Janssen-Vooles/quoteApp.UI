@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+  pre_build:
+    commands:
+      - echo in the pre_build phase...
+      - npm install
+      # - npm install -g serve
+  build:
+    commands:
+      - echo Build started on `date`
+      - npm run build
+      # - serve -s build
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      # - run tests here?!
+artifacts:
+  files:
+    - public/**/*
+    - src/**/*
+    - package.json
+    #- appspec.yml
