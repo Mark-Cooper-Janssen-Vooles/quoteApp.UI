@@ -1,3 +1,3 @@
 # Quote App UI
 
-some info hereee
+some info here.
