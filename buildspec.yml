@@ -13,11 +13,10 @@ phases:
     commands:
       - echo Build started on `date`
       - npm run build
-      # - serve -s build
+      - npm test
   post_build:
     commands:
       - echo Build completed on `date`
-      # - run tests here?!
 artifacts:
   files:
     - public/**/*
