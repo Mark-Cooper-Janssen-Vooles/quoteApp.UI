@@ -1,9 +1,10 @@
 import React from "react";
 import DraftQuoteActions from "./DraftQuoteActions";
+import './DraftQuote.css';
 
 const DraftQuote = () => {
     return (
-        <div>
+        <div className="DraftQuote">
             <div data-testid="quote-info">
                 <p>existing quote 1</p>
                 <p>to: </p>
