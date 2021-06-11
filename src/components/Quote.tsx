@@ -4,9 +4,9 @@ const Quote = () => {
     return (
         <div data-testid="quote-info">
             <p>quote 1</p>
-            <p>to: </p>
-            <p>amount: </p>
-            <p>contact: </p>
+            <p style={{textAlign: "left"}}>to: </p>
+            <p style={{textAlign: "left"}}>amount: </p>
+            <p style={{textAlign: "left"}}>contact: </p>
         </div>
     );
 };
