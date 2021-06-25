@@ -1,10 +1,21 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import QuoteForm from "./components/QuoteForm";
+import {Provider} from "react-redux";
+
+const storeFake = (state) => ({
+  subscribe: () => { },
+  dispatch: () => jest.fn(),
+  getState: () => ({quote: {quoteFormActive: false, ...state }}),
+});
 
 test('renders learn react link', () => {
-  render(<App />);
+    const quoteFormActive = jest.fn()
+  render(
+      <Provider store={storeFake()}>
+        <App quoteFormActive={true} />
+      </Provider>
+      );
   const title = screen.getByText(/Quote app/i);
 
   //worlds worst unit test

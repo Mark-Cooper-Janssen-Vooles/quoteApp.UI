@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 interface IApp {
     quoteFormActive: boolean
 }
+
 const App: React.FC<IApp> = (props) => {
   return (
     <div className="App">

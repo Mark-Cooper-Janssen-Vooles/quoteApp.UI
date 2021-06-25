@@ -21,7 +21,7 @@ const QuoteForm: React.FC<IQuoteForm> = (props) => {
         </div>);
 };
 
-const mapStateToProps = (state: any) => {}
+const mapStateToProps = (state: any) => ({})
 const mapDispatchToProps = (dispatch: any) => {
     return {
         setQuoteFormActive: (show: boolean) => dispatch(setQuoteFormActive(show))
