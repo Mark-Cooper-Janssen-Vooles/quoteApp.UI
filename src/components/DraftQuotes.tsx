@@ -3,6 +3,8 @@ import DraftQuote from "./DraftQuote";
 import './QuoteCardLayout.css'
 
 const DraftQuotes = (props: any) => {
+    console.log(props.draftquotes);
+
     return (
         <div>
             <h4 data-testid="component-header">draft quotes</h4>

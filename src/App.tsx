@@ -30,6 +30,7 @@ const App: React.FC<IApp> = (props) => {
         {props.quoteFormActive ?
             <QuoteForm />
             : <></>}
+        {console.log(props.quotes)}
       <DraftQuotes draftquotes={props.quotes.DraftItems} />
       <SentQuotes />
     </div>
