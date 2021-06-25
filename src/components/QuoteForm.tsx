@@ -18,7 +18,8 @@ const QuoteForm: React.FC<IQuoteForm> = (props) => {
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         console.log(data)
         removeQuoteForm();
-        // save quote as a draft quote
+        // save quote as a draft quote => redux saga call
+        // re-fetch getQuotes => redux saga call
     };
 
     const removeQuoteForm = () => {
@@ -39,6 +40,8 @@ const QuoteForm: React.FC<IQuoteForm> = (props) => {
             <p style={{textAlign: "left"}}>email: {" "}
                 <input {...register("contact", { required: true })} />
             </p>
+
+            {(errors.to || errors.amount || errors.contact) && <p>This field is required</p>}
 
             <input type="submit" value="Save draft quote" />
             <button onClick={removeQuoteForm}>Cancel new quote</button>

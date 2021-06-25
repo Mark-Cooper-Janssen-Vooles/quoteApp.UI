@@ -1,0 +1,92 @@
+{
+  "quotes": [
+    {
+      "Id": "d130ba8c-e48d-459b-851f-8604e0812206",
+      "Items": [
+        {
+          "Message": "fixed kitchen sink",
+          "Price": "20.00"
+        },
+        {
+          "Message": "fixed kitchen sink again",
+          "Price": "22.00"
+        }
+      ],
+      "DraftItems": [
+        {
+          "Message": "changed taps",
+          "Price": "13.99"
+        }
+      ]
+    },
+    {
+      "Id": "1d556a39-c76c-4d59-b1d9-694301532dad",
+      "Items": [
+        {
+          "Message": "leaky roof repair",
+          "Price": "248.00"
+        }
+      ],
+      "DraftItems": [
+        {
+          "Message": "gutter repair",
+          "Price": "13.99"
+        },
+        {
+          "Message": "gutter painting",
+          "Price": "50"
+        }
+      ]
+    },
+    {
+      "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0b4",
+      "Items": [
+        {
+          "Message": "planting trees",
+          "Price": "80.00"
+        },
+        {
+          "Message": "bought flowers",
+          "Price": "22.00"
+        },
+        {
+          "Message": "shrub pruning",
+          "Price": "22.00"
+        }
+      ],
+      "DraftItems": [
+        {
+          "Message": "watering",
+          "Price": "13.99"
+        }
+      ]
+    },
+    {
+      "Id": "6cc69a53-7534-409f-a487-861ed5359b00",
+      "Items": [
+        {
+          "Message": "fixed flywire door",
+          "Price": "50.00"
+        },
+        {
+          "Message": "painted front door",
+          "Price": "22.00"
+        }
+      ],
+      "DraftItems": [
+        {
+          "Message": "took door away to tip",
+          "Price": "13.99"
+        },
+        {
+          "Message": "bought new door",
+          "Price": "139.00"
+        },
+        {
+          "Message": "took new door to tip",
+          "Price": "1.00"
+        }
+      ]
+    }
+  ]
+}

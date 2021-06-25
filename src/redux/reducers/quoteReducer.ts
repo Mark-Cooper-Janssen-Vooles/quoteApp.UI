@@ -27,7 +27,6 @@ const quoteReducer = (state = initialState, action: IActions) => {
                 ...state,
                 quoteFormActive: action.payload
             }
-
         // case Types.SET_QUOTE_FORM_BLANK:
         //     return {
         //         ...state,
