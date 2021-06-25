@@ -20,7 +20,7 @@ phases:
 artifacts:
   files:
     - public/**/*
-    - src/**/*
+    - src/**/* #should this be build?
     - package.json
     - babel.config.json
     #- appspec.yml

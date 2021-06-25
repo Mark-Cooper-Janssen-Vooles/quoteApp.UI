@@ -23,11 +23,11 @@ interface IActions {
 const quoteReducer = (state = initialState, action: IActions) => {
     switch(action.type) {
         case Types.SHOW_QUOTE_FORM:
-            console.log(state);
             return {
                 ...state,
                 quoteFormActive: action.payload
             }
+
         // case Types.SET_QUOTE_FORM_BLANK:
         //     return {
         //         ...state,
