@@ -3,14 +3,12 @@ import { Types } from '../actions/quoteActions'
 export interface IQuoteState {
     quotes: {}[],
     error: string,
-    individualQuote: {},
     quoteFormActive: boolean
 }
 
 const initialState: IQuoteState = {
     quotes: [],
     error: '',
-    individualQuote: {},
     quoteFormActive: false
 }
 
@@ -26,6 +24,16 @@ const quoteReducer = (state = initialState, action: IActions) => {
             return {
                 ...state,
                 quoteFormActive: action.payload
+            }
+        case Types.GET_QUOTES_SUCCESS:
+            return {
+                ...state,
+                quotes: action.payload
+            }
+        case Types.QUOTES_ERROR:
+            return {
+                ...state,
+                error: action.payload
             }
         // case Types.SET_QUOTE_FORM_BLANK:
         //     return {

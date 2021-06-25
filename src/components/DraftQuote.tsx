@@ -3,10 +3,11 @@ import DraftQuoteActions from "./DraftQuoteActions";
 import Quote from "./Quote";
 import './QuoteCard.css';
 
-const DraftQuote = () => {
+const DraftQuote = (props: any) => {
+
     return (
         <div className="quote-card">
-            <Quote />
+            <Quote quote={props.quote}/>
             <DraftQuoteActions />
         </div>
     );
