@@ -2,13 +2,11 @@ import React, {useEffect} from 'react'
 import Header from './components/Header'
 import './App.css'
 import Navbar from "./components/Navbar";
-import ItemForm from "./components/ItemForm";
 import { connect } from "react-redux";
 import {getQuotesRequest} from "./redux/actions/quoteActions";
 import Quote from "./components/Quote"
 
 interface IApp {
-    itemFormActive: boolean,
     getQuotesRequest: () => void,
     quotes: {
         Id: string,
@@ -30,12 +28,8 @@ const App: React.FC<IApp> = (props) => {
 
     return (
     <div className="App">
-      <Navbar />
+      {/*<Navbar />*/}
       <Header />
-        {props.itemFormActive ?
-            <ItemForm />
-            : <></>}
-
       {props.quotes && props.quotes.map((quote: any) => {
           return <Quote quote={quote} key={quote.Id} />
       })}
@@ -45,7 +39,6 @@ const App: React.FC<IApp> = (props) => {
 
 const mapStateToProps = (state: any) => {
     return {
-        itemFormActive: state.quote.itemFormActive,
         quotes: state.quote.quotes
     }
 }

@@ -29,7 +29,7 @@ const ItemForm: React.FC<IItemForm> = (props) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
         <div className="quote-card">
-            <h4>Add a new quote:</h4>
+            <h4>Add a new draft item:</h4>
             <p style={{textAlign: "left"}}>to: {" "}
                 <input {...register("to", { required: true})} />
             </p>
@@ -43,8 +43,8 @@ const ItemForm: React.FC<IItemForm> = (props) => {
 
             {(errors.to || errors.amount || errors.contact) && <p>This field is required</p>}
 
-            <input type="submit" value="Save draft quote" />
-            <button onClick={removeItemForm}>Cancel new quote</button>
+            <input type="submit" value="Save draft item" />
+            <button onClick={removeItemForm}>Cancel new draft item</button>
         </div>
         </form>);
 };
