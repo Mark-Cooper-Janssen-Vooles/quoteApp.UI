@@ -1,6 +1,6 @@
 import React from 'react'
 import './QuoteCard.css'
-import {setQuoteFormActive} from "../redux/actions/quoteActions";
+import {setItemFormActive} from "../redux/actions/quoteActions";
 import {connect} from "react-redux";
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -10,20 +10,20 @@ type Inputs = {
     contact: string
 };
 
-interface IQuoteForm {
-    setQuoteFormActive: (bool: boolean) => void
+interface IItemForm {
+    setItemFormActive: (bool: boolean) => void
 }
-const QuoteForm: React.FC<IQuoteForm> = (props) => {
+const ItemForm: React.FC<IItemForm> = (props) => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         console.log(data)
-        removeQuoteForm();
+        removeItemForm();
         // save quote as a draft quote => redux saga call
         // re-fetch getQuotes => redux saga call
     };
 
-    const removeQuoteForm = () => {
-        props.setQuoteFormActive(false);
+    const removeItemForm = () => {
+        props.setItemFormActive(false);
     }
 
     return (
@@ -44,28 +44,15 @@ const QuoteForm: React.FC<IQuoteForm> = (props) => {
             {(errors.to || errors.amount || errors.contact) && <p>This field is required</p>}
 
             <input type="submit" value="Save draft quote" />
-            <button onClick={removeQuoteForm}>Cancel new quote</button>
+            <button onClick={removeItemForm}>Cancel new quote</button>
         </div>
         </form>);
-
-        /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-        // <form onSubmit={handleSubmit(onSubmit)}>
-        //     {/* register your input into the hook by invoking the "register" function */}
-        //     <input defaultValue="test" {...register("example")} />
-        //
-        //     {/* include validation with required or other standard HTML validation rules */}
-        //     <input {...register("exampleRequired", { required: true })} />
-        //     {/* errors will return when field validation fails  */}
-        //     {errors.exampleRequired && <span>This field is required</span>}
-        //
-        //     <input type="submit" />
-        // </form>);
 };
 
 const mapStateToProps = (state: any) => ({})
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        setQuoteFormActive: (show: boolean) => dispatch(setQuoteFormActive(show))
+        setItemFormActive: (show: boolean) => dispatch(setItemFormActive(show))
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(QuoteForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ItemForm)

@@ -12,7 +12,7 @@ const DraftQuotes = (props: any) => {
                 {/*.map the quotes here*/}
                 {props.draftquotes && props.draftquotes.map((draftQuote: any) => {
                     console.log(draftQuote);
-                    return <DraftQuote quote={draftQuote}/>
+                    return <DraftQuote quote={draftQuote} key={draftQuote.Id}/>
                 })}
             </div>
 

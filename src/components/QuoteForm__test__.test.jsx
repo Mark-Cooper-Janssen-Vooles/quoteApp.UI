@@ -1,6 +1,6 @@
 import {render, screen} from "@testing-library/react";
 import React from "react";
-import QuoteForm from './QuoteForm';
+import ItemForm from './ItemForm';
 import { Provider } from 'react-redux';
 
 const storeFake = (state) => ({
@@ -9,11 +9,11 @@ const storeFake = (state) => ({
     getState: () => ({ ...state }),
 });
 
-describe('QuoteForm', () => {
+describe('ItemForm', () => {
     test('renders component', () => {
         render(
             <Provider store={storeFake({})}>
-                <QuoteForm />
+                <ItemForm />
             </Provider>);
         expect(screen.getAllByRole('button')).toBeTruthy();
     });

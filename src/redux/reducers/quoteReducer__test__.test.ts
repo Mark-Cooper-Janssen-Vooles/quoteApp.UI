@@ -1,12 +1,12 @@
 import quoteReducer, {IQuoteState} from './quoteReducer'
-import {setQuoteFormActive, Types} from '../actions/quoteActions'
+import {setItemFormActive, Types} from '../actions/quoteActions'
 
 describe('quoteReducer', () => {
     const initialState: IQuoteState = {
         quotes: [],
         error: '',
         individualQuote: {},
-        quoteFormActive: false
+        itemFormActive: false
     }
 
     test('Invalid action called returns initial state', () => {
@@ -18,10 +18,10 @@ describe('quoteReducer', () => {
         //arrange
         const expectedState = {
             ...initialState,
-            quoteFormActive: true
+            itemFormActive: true
         }
         //act
-        const newState = quoteReducer(initialState, setQuoteFormActive(true))
+        const newState = quoteReducer(initialState, setItemFormActive(true))
         //assert
         expect(newState).toStrictEqual(expectedState)
     })

@@ -8,16 +8,19 @@
       },
       "Items": [
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0m4",
           "Message": "fixed kitchen sink",
           "Price": "20.00"
         },
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0l4",
           "Message": "fixed kitchen sink again",
           "Price": "22.00"
         }
       ],
       "DraftItems": [
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0k4",
           "Message": "changed taps",
           "Price": "13.99"
         }
@@ -31,16 +34,19 @@
       },
       "Items": [
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0j4",
           "Message": "leaky roof repair",
           "Price": "248.00"
         }
       ],
       "DraftItems": [
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0i4",
           "Message": "gutter repair",
           "Price": "13.99"
         },
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0h4",
           "Message": "gutter painting",
           "Price": "50"
         }
@@ -54,20 +60,24 @@
       },
       "Items": [
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0b6",
           "Message": "planting trees",
           "Price": "80.00"
         },
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0b7",
           "Message": "bought flowers",
           "Price": "22.00"
         },
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0b8",
           "Message": "shrub pruning",
           "Price": "22.00"
         }
       ],
       "DraftItems": [
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0a4",
           "Message": "watering",
           "Price": "13.99"
         }
@@ -81,24 +91,29 @@
       },
       "Items": [
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0c4",
           "Message": "fixed flywire door",
           "Price": "50.00"
         },
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0d4",
           "Message": "painted front door",
           "Price": "22.00"
         }
       ],
       "DraftItems": [
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0e4",
           "Message": "took door away to tip",
           "Price": "13.99"
         },
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0f4",
           "Message": "bought new door",
           "Price": "139.00"
         },
         {
+          "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0g4",
           "Message": "took new door to tip",
           "Price": "1.00"
         }

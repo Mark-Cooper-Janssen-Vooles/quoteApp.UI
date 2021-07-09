@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setQuoteFormActive } from "../redux/actions/quoteActions";
+import { setItemFormActive } from "../redux/actions/quoteActions";
 
 interface INavbar {
-    quoteFormActive: boolean,
-    setQuoteFormActive: (bool: boolean) => void
+    itemFormActive: boolean,
+    setItemFormActive: (bool: boolean) => void
 }
 
 const Navbar: React.FC<INavbar> = (props, ) => {
     const addQuote = () => {
-        props.setQuoteFormActive(!props.quoteFormActive)
+        props.setItemFormActive(!props.itemFormActive)
     }
 
     return (
@@ -20,12 +20,12 @@ const Navbar: React.FC<INavbar> = (props, ) => {
 
 const mapStateToProps = (state: any) => {
     return {
-        quoteFormActive: state.quote.quoteFormActive
+        itemFormActive: state.quote.itemFormActive
     }
 }
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        setQuoteFormActive: (show: boolean) => dispatch(setQuoteFormActive(show))
+        setItemFormActive: (show: boolean) => dispatch(setItemFormActive(show))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

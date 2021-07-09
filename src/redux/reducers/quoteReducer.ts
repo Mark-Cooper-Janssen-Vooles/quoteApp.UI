@@ -3,13 +3,13 @@ import { Types } from '../actions/quoteActions'
 export interface IQuoteState {
     quotes: {}[],
     error: string,
-    quoteFormActive: boolean
+    itemFormActive: boolean
 }
 
 const initialState: IQuoteState = {
     quotes: [],
     error: '',
-    quoteFormActive: false
+    itemFormActive: false
 }
 
 interface IActions {
@@ -23,7 +23,7 @@ const quoteReducer = (state = initialState, action: IActions) => {
         case Types.SHOW_QUOTE_FORM:
             return {
                 ...state,
-                quoteFormActive: action.payload
+                itemFormActive: action.payload
             }
         case Types.GET_QUOTES_SUCCESS:
             return {
@@ -35,33 +35,6 @@ const quoteReducer = (state = initialState, action: IActions) => {
                 ...state,
                 error: action.payload
             }
-        // case Types.SET_QUOTE_FORM_BLANK:
-        //     return {
-        //         ...state,
-        //         individualQuote: {
-        //             id: '',
-        //             message: '',
-        //             createdAt: '',
-        //             author: '',
-        //             lastEdited: ''
-        //         }
-        //     }
-        // case Types.GET_QUOTES_SUCCESS:
-        //     console.log('got quotes')
-        //     return {
-        //         ...state,
-        //         quotes: action.payload
-        //     }
-        // case Types.SHOW_QUOTE_FORM:
-        //     return {
-        //         ...state,
-        //         quoteFormActive: action.payload
-        //     }
-        // case Types.QUOTES_ERROR:
-        //     return {
-        //         ...state,
-        //         error: action.payload
-        //     }
         default:
             return state
     }

@@ -6,7 +6,7 @@ import {Provider} from "react-redux";
 const storeFake = (state) => ({
     subscribe: () => { },
     dispatch: () => jest.fn(),
-    getState: () => ({quote: {quoteFormActive: false, ...state }}),
+    getState: () => ({quote: {itemFormActive: false, ...state }}),
 });
 
 describe('Navbar', () => {

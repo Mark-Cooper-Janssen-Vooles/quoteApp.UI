@@ -10,7 +10,7 @@ export const Types = {
     SET_QUOTE_FORM_BLANK: 'SET_QUOTE_FORM_BLANK'
 }
 
-export const setQuoteFormActive = (show: boolean) => ({type: Types.SHOW_QUOTE_FORM, payload: show})
+export const setItemFormActive = (show: boolean) => ({type: Types.SHOW_QUOTE_FORM, payload: show})
 
 // SAGAS:
 
