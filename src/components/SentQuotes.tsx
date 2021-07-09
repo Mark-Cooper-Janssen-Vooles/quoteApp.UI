@@ -2,13 +2,15 @@ import React from "react";
 import './QuoteCardLayout.css'
 import SentQuote from "./SentQuote";
 
-const SentQuotes = () => {
+const SentQuotes = (props: any) => {
     return (
         <div>
-            <h4 data-testid="sent-quotes">sent quotes</h4>
+            <h4 data-testid="sent-quotes">sent item{props.sentQuotes.length > 1 && 's'}</h4>
             <div className="quote-card-layout">
                 {/*.map the quotes here*/}
-                <SentQuote /><SentQuote />
+                {props.sentQuotes && props.sentQuotes.map((sentQuote: any) => {
+                    return <SentQuote quote={sentQuote}/>
+                })}
             </div>
         </div>
     );

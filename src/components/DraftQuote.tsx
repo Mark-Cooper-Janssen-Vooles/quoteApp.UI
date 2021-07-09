@@ -7,7 +7,8 @@ const DraftQuote = (props: any) => {
 
     return (
         <div className="quote-card">
-            <Quote quote={props.quote}/>
+            <p style={{textAlign: "left"}}>Message: {props.quote.Message}</p>
+            <p style={{textAlign: "left"}}>Price: {props.quote.Price}</p>
             <DraftQuoteActions />
         </div>
     );

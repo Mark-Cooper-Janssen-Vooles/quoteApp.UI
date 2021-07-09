@@ -2,6 +2,10 @@
   "quotes": [
     {
       "Id": "d130ba8c-e48d-459b-851f-8604e0812206",
+      "Contact": {
+        "Name": "Keanu Reeves",
+        "Email": "keanu.reeves@xero.com"
+      },
       "Items": [
         {
           "Message": "fixed kitchen sink",
@@ -21,6 +25,10 @@
     },
     {
       "Id": "1d556a39-c76c-4d59-b1d9-694301532dad",
+      "Contact": {
+        "Name": "Bob Dylan",
+        "Email": "bobbyboy1234@hotmail.com"
+      },
       "Items": [
         {
           "Message": "leaky roof repair",
@@ -40,6 +48,10 @@
     },
     {
       "Id": "ce7a0bce-dea2-4416-a1cf-7ebb9656d0b4",
+      "Contact": {
+        "Name": "Shakira",
+        "Email": "hipsdontlie@xero.com"
+      },
       "Items": [
         {
           "Message": "planting trees",
@@ -63,6 +75,10 @@
     },
     {
       "Id": "6cc69a53-7534-409f-a487-861ed5359b00",
+      "Contact": {
+        "Name": "THE BIG SHOW",
+        "Email": "wwewrestling@xero.com"
+      },
       "Items": [
         {
           "Message": "fixed flywire door",

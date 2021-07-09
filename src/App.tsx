@@ -2,20 +2,25 @@ import React, {useEffect} from 'react'
 import Header from './components/Header'
 import './App.css'
 import Navbar from "./components/Navbar";
-import DraftQuotes from "./components/DraftQuotes";
-import SentQuotes from "./components/SentQuotes";
 import QuoteForm from "./components/QuoteForm";
 import { connect } from "react-redux";
 import {getQuotesRequest} from "./redux/actions/quoteActions";
+import Quote from "./components/Quote"
 
 interface IApp {
     quoteFormActive: boolean,
     getQuotesRequest: () => void,
     quotes: {
         Id: string,
-        Items: {}[],
-        DraftItems: {}[]
-    }
+        Items: {
+            Message: string,
+            Price: string,
+        }
+        DraftItems: {
+            Message: string,
+            Price: string,
+        },
+    }[]
 }
 
 const App: React.FC<IApp> = (props) => {
@@ -30,9 +35,10 @@ const App: React.FC<IApp> = (props) => {
         {props.quoteFormActive ?
             <QuoteForm />
             : <></>}
-        {console.log(props.quotes)}
-      <DraftQuotes draftquotes={props.quotes.DraftItems} />
-      <SentQuotes />
+
+      {props.quotes && props.quotes.map((quote: any) => {
+          return <Quote quote={quote} />
+      })}
     </div>
   )
 }

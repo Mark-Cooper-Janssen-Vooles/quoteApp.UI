@@ -3,8 +3,8 @@ import React from "react";
 const DraftQuoteActions = () => {
     return (
         <div data-testid="quote-actions">
-            <button>edit quote</button>
-            <button>delete quote</button>
+            <button>edit item</button>
+            <button>delete item</button>
             <button>finalise and send</button>
         </div>
     );
