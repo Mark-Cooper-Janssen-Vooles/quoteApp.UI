@@ -6,12 +6,15 @@ export const Types = {
     UPDATE_QUOTE_REQUEST: 'UPDATE_QUOTE_REQUEST',
     CREATE_QUOTE_REQUEST: 'CREATE_QUOTE_REQUEST',
     QUOTES_ERROR: 'QUOTES_ERROR',
-    SHOW_QUOTE_FORM: 'SHOW_QUOTE_FORM',
+    SHOW_ITEM_FORM: 'SHOW_ITEM_FORM',
+    SHOW_EDIT_ITEM_FORM: 'SHOW_EDIT_ITEM_FORM',
     SET_QUOTE_FORM_BLANK: 'SET_QUOTE_FORM_BLANK',
     CREATE_NEW_DRAFT_ITEM: 'CREATE_NEW_DRAFT_ITEM'
 }
 
-export const setItemFormActive = (show: boolean) => ({type: Types.SHOW_QUOTE_FORM, payload: show})
+// REDUX ONLY:
+export const setItemFormActive = (show: boolean) => ({type: Types.SHOW_ITEM_FORM, payload: show})
+export const setEditItemFormActive = (editItem: {}) => ({type: Types.SHOW_EDIT_ITEM_FORM, payload: editItem})
 
 // SAGAS:
 

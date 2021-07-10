@@ -3,13 +3,15 @@ import { Types } from '../actions/quoteActions'
 export interface IQuoteState {
     quotes: {}[],
     error: string,
-    itemFormActive: boolean
+    itemFormActive: boolean,
+    itemFormEditActive: {}
 }
 
 const initialState: IQuoteState = {
     quotes: [],
     error: '',
-    itemFormActive: false
+    itemFormActive: false,
+    itemFormEditActive: { editing: false, itemId: ''},
 }
 
 interface IActions {
@@ -20,10 +22,15 @@ interface IActions {
 //reducer
 const quoteReducer = (state = initialState, action: IActions) => {
     switch(action.type) {
-        case Types.SHOW_QUOTE_FORM:
+        case Types.SHOW_ITEM_FORM:
             return {
                 ...state,
                 itemFormActive: action.payload
+            }
+        case Types.SHOW_EDIT_ITEM_FORM:
+            return {
+                ...state,
+                itemFormEditActive: action.payload
             }
         case Types.GET_QUOTES_SUCCESS:
             return {

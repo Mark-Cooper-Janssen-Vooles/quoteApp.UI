@@ -1,10 +1,19 @@
-import React from "react";
-import {getQuotesRequest} from "../redux/actions/quoteActions";
+import React, {useState} from "react";
+import {getQuotesRequest, setEditItemFormActive} from "../redux/actions/quoteActions";
 import {connect} from "react-redux";
 
-const DraftQuoteActions = () => {
+const DraftQuoteActions = (props: any) => {
+    const [errorMessage, setErrorMessage] = useState({ active: false, message: ''});
+
     const activateEditItemForm = () => {
-        // need a new state here "itemFormEditActive" => switch it to true
+        if (props.itemFormEditActive.editing == true ) {
+            setErrorMessage({ active: true, message: 'There is another item already being edited'}) //how to turn this off?
+        } else {
+            props.setEditItemFormActive({
+                editing: true,
+                itemId: props.itemId
+            })
+        }
     }
 
     return (
@@ -12,6 +21,7 @@ const DraftQuoteActions = () => {
             <button onClick={activateEditItemForm}>edit item</button>
             <button>delete item</button>
             <button>finalise and send</button>
+            { (errorMessage.active && props.itemFormEditActive.editing == true) ? errorMessage.message : '' }
         </div>
     );
 };
@@ -23,7 +33,7 @@ const mapStateToProps = (state: any) => {
 }
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        getQuotesRequest: () => dispatch(getQuotesRequest())
+        setEditItemFormActive: (show: boolean) => dispatch(setEditItemFormActive(show))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(DraftQuoteActions)

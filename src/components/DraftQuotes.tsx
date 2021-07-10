@@ -7,8 +7,8 @@ const DraftQuotes = (props: any) => {
         <div>
             <h4 data-testid="component-header">draft item{props.draftquotes.length > 1 && 's'}</h4>
             <div className="quote-card-layout">
-                {props.draftquotes && props.draftquotes.map((draftQuote: any) => {
-                    return <DraftQuote quote={draftQuote} key={draftQuote.id}/>
+                {props.draftquotes && props.draftquotes.map((draftItem: any) => {
+                    return <DraftQuote item={draftItem} key={draftItem.id}/>
                 })}
             </div>
         </div>
