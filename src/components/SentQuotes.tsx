@@ -9,7 +9,7 @@ const SentQuotes = (props: any) => {
             <div className="quote-card-layout">
                 {/*.map the quotes here*/}
                 {props.sentQuotes && props.sentQuotes.map((sentQuote: any) => {
-                    return <SentQuote quote={sentQuote}/>
+                    return <SentQuote quote={sentQuote} key={sentQuote.id}/>
                 })}
             </div>
         </div>

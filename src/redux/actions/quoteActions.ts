@@ -7,15 +7,21 @@ export const Types = {
     CREATE_QUOTE_REQUEST: 'CREATE_QUOTE_REQUEST',
     QUOTES_ERROR: 'QUOTES_ERROR',
     SHOW_QUOTE_FORM: 'SHOW_QUOTE_FORM',
-    SET_QUOTE_FORM_BLANK: 'SET_QUOTE_FORM_BLANK'
+    SET_QUOTE_FORM_BLANK: 'SET_QUOTE_FORM_BLANK',
+    CREATE_NEW_DRAFT_ITEM: 'CREATE_NEW_DRAFT_ITEM'
 }
 
 export const setItemFormActive = (show: boolean) => ({type: Types.SHOW_QUOTE_FORM, payload: show})
 
 // SAGAS:
 
-//READ
+// READ
 export const getQuotesRequest = () => ({type: Types.GET_QUOTES_REQUEST})
 export const getQuotesSuccess = (quotes: {}[]) => ({type: Types.GET_QUOTES_SUCCESS, payload: quotes})
+
+// CREATE
+export const createNewDraftItem = (draftItem: {}) => {
+    return {type: Types.CREATE_NEW_DRAFT_ITEM, payload: draftItem}
+}
 
 export const quotesError = (error: string) => ({type: Types.QUOTES_ERROR, payload: error})

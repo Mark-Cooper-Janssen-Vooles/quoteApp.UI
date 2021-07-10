@@ -9,7 +9,7 @@ import Quote from "./components/Quote"
 interface IApp {
     getQuotesRequest: () => void,
     quotes: {
-        Id: string,
+        id: string,
         Items: {
             Message: string,
             Price: string,
@@ -28,10 +28,10 @@ const App: React.FC<IApp> = (props) => {
 
     return (
     <div className="App">
-      {/*<Navbar />*/}
+      <Navbar />
       <Header />
       {props.quotes && props.quotes.map((quote: any) => {
-          return <Quote quote={quote} key={quote.Id} />
+          return <Quote quote={quote} key={quote.id} />
       })}
     </div>
   )

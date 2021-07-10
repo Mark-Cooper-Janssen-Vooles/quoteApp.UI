@@ -9,11 +9,14 @@ interface INavbar {
 
 const Navbar: React.FC<INavbar> = (props, ) => {
     const addQuote = () => {
-        props.setItemFormActive(!props.itemFormActive)
+        //props.setItemFormActive(!props.itemFormActive)
+        // this needs to setQuoteForm active (not item form)
+
+        console.log('todo')
     }
 
     return (
-        <div>
+        <div style={{marginTop: "20px"}}>
             <button onClick={addQuote}>Add new Quote</button>
         </div>);
 };

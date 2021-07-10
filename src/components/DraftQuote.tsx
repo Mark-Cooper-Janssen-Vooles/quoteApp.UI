@@ -4,7 +4,6 @@ import Quote from "./Quote";
 import './QuoteCard.css';
 
 const DraftQuote = (props: any) => {
-
     return (
         <div className="quote-card">
             <p style={{textAlign: "left"}}>Message: {props.quote.Message}</p>

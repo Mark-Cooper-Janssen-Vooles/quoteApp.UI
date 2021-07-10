@@ -17,7 +17,7 @@ const Quote = (props: any) => {
             <button onClick={addQuote}>Add new draft item</button>
 
             {props.itemFormActive ?
-                <ItemForm />
+                <ItemForm quote={props.quote}/>
                 : <></>}
 
             {props.quote.DraftItems && <DraftQuotes draftquotes={props.quote.DraftItems} style={{align: "left"}} />}
