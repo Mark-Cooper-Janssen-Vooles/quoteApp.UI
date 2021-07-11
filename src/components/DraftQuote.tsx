@@ -3,6 +3,7 @@ import DraftQuoteActions from "./DraftQuoteActions";
 import './QuoteCard.css';
 import {setEditItemFormActive} from "../redux/actions/quoteActions";
 import {connect} from "react-redux";
+import ItemForm, { Mode } from "./ItemForm";
 
 const DraftQuote = (props: any) => {
     const showItemFormEdit = props.itemFormEditActive.editing && props.itemFormEditActive.itemId == props.item.id
@@ -13,6 +14,7 @@ const DraftQuote = (props: any) => {
                 <div>
                     edit form here
                     {/*//reuse itemForm but pass the quote stuff to fill it out to start.*/}
+                    <ItemForm quote={props.item} mode={Mode.EDIT_ITEM}/>
                 </div>
                 :
                 <div>

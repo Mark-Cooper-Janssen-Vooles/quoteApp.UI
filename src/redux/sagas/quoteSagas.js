@@ -1,11 +1,6 @@
 import { takeEvery, takeLatest, take, call, fork, put } from 'redux-saga/effects'
 import * as api from '../quoteServicesAPI'
 import * as actions from '../actions/quoteActions'
-import {createNewDraftItem} from "../actions/quoteActions";
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-}
 
 // READ watcher saga
 function* watchGetQuotesRequest() {
@@ -34,15 +29,31 @@ function* createNewDraftItemSaga({payload: quoteItem}) {
         //const quotes = result.data
         //yield put(actions.getQuotesSuccess(quotes))
     } catch (e) {
-        console.log("An error occured trying to fetch the quotes")
-        yield put(actions.quotesError("An error occured trying to fetch the quotes"))
+        console.log("An error occured trying to create the item")
+        yield put(actions.quotesError("An error occured trying to create the item"))
+    }
+}
+
+// UPDATE item watcher saga
+function* watchUpdateDraftItem() {
+    yield takeEvery(actions.Types.UPDATE_DRAFT_ITEM, createNewDraftItemSaga)
+}
+// UPDATE item worker saga
+function* updateDraftItemSaga({payload: quoteItem}) {
+    try {
+        const result = yield call(api.updateDraftItem, quoteItem)
+        //const quotes = result.data
+        //yield put(actions.getQuotesSuccess(quotes))
+    } catch (e) {
+        console.log("An error occured trying to update the item")
+        yield put(actions.quotesError("An error occured trying to update the item"))
     }
 }
 
 const quoteSagas = [
     fork(watchGetQuotesRequest),
     fork(watchCreateNewDraftItem),
-    // fork(watchUpdateQuoteRequest),
+    fork(watchUpdateDraftItem),
     // fork(watchCreateQuoteRequest)
 ]
 

@@ -1,12 +1,12 @@
 import React from "react";
-import DraftQuotes from "./DraftQuotes";
+import DraftItems from "./DraftItems";
 import SentQuotes from "./SentQuotes";
-import ItemForm from "./ItemForm";
+import ItemForm, {Mode} from "./ItemForm";
 import {getQuotesRequest, setItemFormActive} from "../redux/actions/quoteActions";
 import {connect} from "react-redux";
 
 const Quote = (props: any) => {
-    const addQuote = () => {
+    const showNewItemForm = () => {
         props.setItemFormActive(!props.itemFormActive)
     }
 
@@ -14,14 +14,14 @@ const Quote = (props: any) => {
         <div data-testid="quote-info" style={{borderStyle: "solid", margin: "10px", padding: "5px", width: "80%"}}>
             <p>{props.quote.Contact.Name}</p>
             <p>{props.quote.Contact.Email}</p>
-            <button onClick={addQuote}>Add new draft item</button>
+            <button onClick={showNewItemForm}>Add new draft item</button>
 
             {props.itemFormActive ?
-                <ItemForm quote={props.quote}/>
+                <ItemForm quote={props.quote} mode={Mode.NEW_ITEM} />
                 : <></>}
 
-            {props.quote.DraftItems && <DraftQuotes draftquotes={props.quote.DraftItems} style={{align: "left"}} />}
-            {props.quote.Items && <SentQuotes sentQuotes={props.quote.Items} style={{align: "left"}} />}
+            {props.quote.DraftItems && <DraftItems draftItems={props.quote.DraftItems} quoteId={props.quote.id} style={{align: "left"}} />}
+            {props.quote.Items && <SentQuotes sentItems={props.quote.Items} style={{align: "left"}} />}
             <p />
             <button>Delete Quote</button>
             <p />
