@@ -78,7 +78,11 @@ const ItemForm: React.FC<IItemForm> = (props) => {
             {(errors.message || errors.amount) && <p>This field is required</p>}
 
             <input type="submit" value="Save draft item" />
-            <button onClick={removeItemForm}>Cancel new draft item</button>
+            { props.mode === Mode.NEW_ITEM ?
+                <button onClick={removeItemForm}>Cancel new draft item</button>
+                :
+                <button onClick={removeItemForm}>Cancel editing draft item</button>
+            }
         </div>
         </form>);
 };
