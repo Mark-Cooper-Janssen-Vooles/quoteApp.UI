@@ -4,7 +4,8 @@ export interface IQuoteState {
     quotes: {}[],
     error: string,
     itemFormActive: boolean,
-    itemFormEditActive: {}
+    itemFormEditActive: {},
+    quoteFormActive: boolean
 }
 
 const initialState: IQuoteState = {
@@ -12,6 +13,7 @@ const initialState: IQuoteState = {
     error: '',
     itemFormActive: false,
     itemFormEditActive: { editing: false, itemId: ''},
+    quoteFormActive: false
 }
 
 interface IActions {
@@ -41,6 +43,11 @@ const quoteReducer = (state = initialState, action: IActions) => {
             return {
                 ...state,
                 error: action.payload
+            }
+        case Types.SHOW_QUOTE_FORM:
+            return {
+                ...state,
+                quoteFormActive: action.payload
             }
         default:
             return state

@@ -34,6 +34,21 @@ function* createNewDraftItemSaga({payload: quoteItem}) {
     }
 }
 
+// CREATE quote watcher saga
+function* watchCreateNewQuote() {
+    yield takeEvery(actions.Types.CREATE_NEW_QUOTE, createNewQuoteSaga)
+}
+function* createNewQuoteSaga({payload: quote}) {
+    try {
+        const result = yield call(api.createNewQuote, quote)
+        //const quotes = result.data
+        //yield put(actions.getQuotesSuccess(quotes))
+    } catch (e) {
+        console.log("An error occured trying to create the quote")
+        yield put(actions.quotesError("An error occured trying to create the quote"))
+    }
+}
+
 // UPDATE item watcher saga
 function* watchUpdateDraftItem() {
     yield takeEvery(actions.Types.UPDATE_DRAFT_ITEM, updateDraftItemSaga)
@@ -54,7 +69,7 @@ const quoteSagas = [
     fork(watchGetQuotesRequest),
     fork(watchCreateNewDraftItem),
     fork(watchUpdateDraftItem),
-    // fork(watchCreateQuoteRequest)
+    fork(watchCreateNewQuote)
 ]
 
 export default quoteSagas

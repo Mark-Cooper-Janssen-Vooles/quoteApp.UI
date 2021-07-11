@@ -1,34 +1,36 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { setItemFormActive } from "../redux/actions/quoteActions";
+import { setQuoteFormActive } from "../redux/actions/quoteActions";
+import QuoteForm from "./QuoteForm";
 
 interface INavbar {
-    itemFormActive: boolean,
-    setItemFormActive: (bool: boolean) => void
+    quoteFormActive: boolean,
+    setQuoteFormActive: (bool: boolean) => void
 }
 
 const Navbar: React.FC<INavbar> = (props, ) => {
     const addQuote = () => {
-        //props.setItemFormActive(!props.itemFormActive)
-        // this needs to setQuoteForm active (not item form)
-
-        console.log('todo')
+        props.setQuoteFormActive(!props.quoteFormActive)
     }
 
     return (
         <div style={{marginTop: "20px"}}>
-            <button onClick={addQuote}>Add new Quote</button>
+            { props.quoteFormActive ?
+                <QuoteForm />
+                :
+                <button onClick={addQuote}>Add new Quote</button>
+            }
         </div>);
 };
 
 const mapStateToProps = (state: any) => {
     return {
-        itemFormActive: state.quote.itemFormActive
+        quoteFormActive: state.quote.quoteFormActive
     }
 }
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        setItemFormActive: (show: boolean) => dispatch(setItemFormActive(show))
+        setQuoteFormActive: (show: boolean) => dispatch(setQuoteFormActive(show))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

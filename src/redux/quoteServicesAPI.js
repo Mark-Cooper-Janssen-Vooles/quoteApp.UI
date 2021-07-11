@@ -22,6 +22,17 @@ export const createNewDraftItem = (draftItem) => {
         ...draftItemToCreate
     }); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
 }
+export const createNewQuote = (quote) => {
+    // put API post request here for adding new draft item
+    console.log(quote);
+    const quoteToCreate = {
+        "name": quote.name,
+        "email": quote.email
+    }
+    return axios.post(`${baseUrl}/${quote}`, { // use post to create!
+        ...quoteToCreate
+    }); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
+}
 
 export const updateDraftItem = (draftItem) => {
     // put API post request here for adding new draft item
