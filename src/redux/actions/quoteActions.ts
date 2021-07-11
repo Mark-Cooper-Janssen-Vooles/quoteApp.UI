@@ -8,7 +8,8 @@ export const Types = {
     UPDATE_DRAFT_ITEM: 'UPDATE_DRAFT_ITEM',
     SHOW_QUOTE_FORM: 'SHOW_QUOTE_FORM',
     CREATE_NEW_QUOTE: 'CREATE_NEW_QUOTE',
-    DELETE_QUOTE: 'DELETE_QUOTE'
+    DELETE_QUOTE: 'DELETE_QUOTE',
+    DELETE_ITEM: 'DELETE_ITEM'
 }
 
 // REDUX ONLY:
@@ -39,6 +40,9 @@ export const updateDraftItem = (draftItem: {}) => {
 // DELETE
 export const deleteQuote = (quoteId: {}) => {
     return {type: Types.DELETE_QUOTE, payload: quoteId}
+}
+export const deleteItem = (itemId: {}) => {
+    return {type: Types.DELETE_ITEM, payload: itemId}
 }
 
 export const quotesError = (error: string) => ({type: Types.QUOTES_ERROR, payload: error})

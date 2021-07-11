@@ -1,5 +1,8 @@
 import React, {useState} from "react";
-import {getQuotesRequest, setEditItemFormActive} from "../redux/actions/quoteActions";
+import {
+    deleteItem,
+    setEditItemFormActive
+} from "../redux/actions/quoteActions";
 import {connect} from "react-redux";
 
 const DraftQuoteActions = (props: any) => {
@@ -16,10 +19,16 @@ const DraftQuoteActions = (props: any) => {
         }
     }
 
+    const deleteItem = () => {
+        if (window.confirm("Are you sure you want to delete this item?")) {
+            props.deleteItem(props.itemId)
+        }
+    }
+
     return (
         <div data-testid="quote-actions">
             <button onClick={activateEditItemForm}>edit item</button>
-            <button>delete item</button>
+            <button onClick={deleteItem}>delete item</button>
             <button>finalise and send</button>
             { (errorMessage.active && props.itemFormEditActive.editing == true) ? errorMessage.message : '' }
         </div>
@@ -33,7 +42,8 @@ const mapStateToProps = (state: any) => {
 }
 const mapDispatchToProps = (dispatch: any) => {
     return {
-        setEditItemFormActive: (show: boolean) => dispatch(setEditItemFormActive(show))
+        setEditItemFormActive: (show: boolean) => dispatch(setEditItemFormActive(show)),
+        deleteItem: (itemId: string) => dispatch(deleteItem(itemId))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(DraftQuoteActions)

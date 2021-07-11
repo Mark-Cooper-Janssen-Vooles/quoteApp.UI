@@ -80,12 +80,27 @@ function* deleteQuoteSaga({payload: quoteId}) {
     }
 }
 
+function* watchDeleteItem() {
+    yield takeEvery(actions.Types.DELETE_ITEM, deleteItemSaga)
+}
+function* deleteItemSaga({payload: itemId}) {
+    try {
+        const result = yield call(api.deleteItem, itemId)
+        //const quotes = result.data
+        //yield put(actions.getQuotesSuccess(quotes))
+    } catch (e) {
+        console.log("An error occured trying to delete the item")
+        yield put(actions.quotesError("An error occured trying to delete the item"))
+    }
+}
+
 const quoteSagas = [
     fork(watchGetQuotesRequest),
     fork(watchCreateNewDraftItem),
     fork(watchUpdateDraftItem),
     fork(watchCreateNewQuote),
-    fork(watchDeleteQuote)
+    fork(watchDeleteQuote),
+    fork(watchDeleteItem)
 ]
 
 export default quoteSagas

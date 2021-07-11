@@ -12,8 +12,6 @@ const DraftQuote = (props: any) => {
         <div className="quote-card">
             { showItemFormEdit ?
                 <div>
-                    edit form here
-                    {/*//reuse itemForm but pass the quote stuff to fill it out to start.*/}
                     <ItemForm quote={props.item} mode={Mode.EDIT_ITEM}/>
                 </div>
                 :

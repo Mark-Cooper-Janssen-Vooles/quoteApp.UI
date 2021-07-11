@@ -66,7 +66,7 @@ const ItemForm: React.FC<IItemForm> = (props) => {
     return (
         <form onSubmit={handleSubmit(onSubmit)} >
         <div className="quote-card">
-            <h4>{ props.mode === Mode.NEW_ITEM ? "Add a new draft item:" : "Edit draft item:" }</h4>
+            <h4>{ props.mode === Mode.NEW_ITEM ? "Add a new draft item" : "Edit draft item" }</h4>
 
             <p style={{textAlign: "left"}}>message: {" "}
                 <input {...register("message", { required: true})} defaultValue={props.quote.Message} />

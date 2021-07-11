@@ -9,8 +9,9 @@ const Quote = (props: any) => {
     const showNewItemForm = () => {
         props.setItemFormActive(!props.itemFormActive)
     }
+
     const deleteQuote = () => {
-        if (window.confirm("Are you sure?")) {
+        if (window.confirm("Are you sure you want to delete this quote?")) {
             props.deleteQuote(props.quote.id)
         }
     }
