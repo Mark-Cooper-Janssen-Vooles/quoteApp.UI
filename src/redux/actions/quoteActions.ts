@@ -1,18 +1,14 @@
 export const Types = {
     GET_QUOTES_REQUEST: 'GET_QUOTES_REQUEST',
     GET_QUOTES_SUCCESS: 'GET_QUOTES_SUCCESS',
-    DELETE_QUOTE_REQUEST: 'DELETE_QUOTE_REQUEST',
-    DELETE_QUOTE_SUCCESS: 'DELETE_QUOTE_SUCCESS',
-    UPDATE_QUOTE_REQUEST: 'UPDATE_QUOTE_REQUEST',
-    CREATE_QUOTE_REQUEST: 'CREATE_QUOTE_REQUEST',
     QUOTES_ERROR: 'QUOTES_ERROR',
     SHOW_ITEM_FORM: 'SHOW_ITEM_FORM',
     SHOW_EDIT_ITEM_FORM: 'SHOW_EDIT_ITEM_FORM',
-    SET_QUOTE_FORM_BLANK: 'SET_QUOTE_FORM_BLANK',
     CREATE_NEW_DRAFT_ITEM: 'CREATE_NEW_DRAFT_ITEM',
     UPDATE_DRAFT_ITEM: 'UPDATE_DRAFT_ITEM',
     SHOW_QUOTE_FORM: 'SHOW_QUOTE_FORM',
-    CREATE_NEW_QUOTE: 'CREATE_NEW_QUOTE'
+    CREATE_NEW_QUOTE: 'CREATE_NEW_QUOTE',
+    DELETE_QUOTE: 'DELETE_QUOTE'
 }
 
 // REDUX ONLY:
@@ -38,6 +34,11 @@ export const createNewQuote = (quote: {}) => {
 export const updateDraftItem = (draftItem: {}) => {
     console.log('updating')
     return {type: Types.UPDATE_DRAFT_ITEM, payload: draftItem}
+}
+
+// DELETE
+export const deleteQuote = (quoteId: {}) => {
+    return {type: Types.DELETE_QUOTE, payload: quoteId}
 }
 
 export const quotesError = (error: string) => ({type: Types.QUOTES_ERROR, payload: error})

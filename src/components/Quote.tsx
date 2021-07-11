@@ -2,12 +2,17 @@ import React from "react";
 import DraftItems from "./DraftItems";
 import SentQuotes from "./SentQuotes";
 import ItemForm, {Mode} from "./ItemForm";
-import {getQuotesRequest, setItemFormActive} from "../redux/actions/quoteActions";
+import {deleteQuote, getQuotesRequest, setItemFormActive} from "../redux/actions/quoteActions";
 import {connect} from "react-redux";
 
 const Quote = (props: any) => {
     const showNewItemForm = () => {
         props.setItemFormActive(!props.itemFormActive)
+    }
+    const deleteQuote = () => {
+        if (window.confirm("Are you sure?")) {
+            props.deleteQuote(props.quote.id)
+        }
     }
 
     return (
@@ -23,7 +28,7 @@ const Quote = (props: any) => {
             {props.quote.DraftItems && <DraftItems draftItems={props.quote.DraftItems} quoteId={props.quote.id} style={{align: "left"}} />}
             {props.quote.Items && <SentQuotes sentItems={props.quote.Items} style={{align: "left"}} />}
             <p />
-            <button>Delete Quote</button>
+            <button onClick={deleteQuote}>Delete Quote</button>
             <p />
         </div>
     );
@@ -37,7 +42,8 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => {
     return {
         getQuotesRequest: () => dispatch(getQuotesRequest()),
-        setItemFormActive: (show: boolean) => dispatch(setItemFormActive(show))
+        setItemFormActive: (show: boolean) => dispatch(setItemFormActive(show)),
+        deleteQuote: (quoteId: string) => dispatch(deleteQuote(quoteId))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Quote)

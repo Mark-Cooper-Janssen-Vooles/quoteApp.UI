@@ -47,3 +47,9 @@ export const updateDraftItem = (draftItem) => {
     }); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
 }
 
+export const deleteQuote = (quoteId) => {
+    // put API post request here for adding new draft item
+    console.log(quoteId);
+    return axios.delete(`${baseUrl}/${quoteId}jiou9`); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
+}
+
