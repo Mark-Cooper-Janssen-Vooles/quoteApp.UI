@@ -58,6 +58,7 @@ const ItemForm: React.FC<IItemForm> = (props) => {
         }
 
         if (props.mode === Mode.EDIT_ITEM) {
+            console.log('editing item')
             props.updateDraftItem(draftItem)
         }
     }

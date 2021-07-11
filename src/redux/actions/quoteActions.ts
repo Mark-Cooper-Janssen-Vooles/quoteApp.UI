@@ -30,6 +30,7 @@ export const createNewDraftItem = (draftItem: {}) => {
 
 // UPDATE
 export const updateDraftItem = (draftItem: {}) => {
+    console.log('updating')
     return {type: Types.UPDATE_DRAFT_ITEM, payload: draftItem}
 }
 

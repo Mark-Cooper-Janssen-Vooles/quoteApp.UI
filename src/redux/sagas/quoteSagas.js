@@ -36,7 +36,7 @@ function* createNewDraftItemSaga({payload: quoteItem}) {
 
 // UPDATE item watcher saga
 function* watchUpdateDraftItem() {
-    yield takeEvery(actions.Types.UPDATE_DRAFT_ITEM, createNewDraftItemSaga)
+    yield takeEvery(actions.Types.UPDATE_DRAFT_ITEM, updateDraftItemSaga)
 }
 // UPDATE item worker saga
 function* updateDraftItemSaga({payload: quoteItem}) {
