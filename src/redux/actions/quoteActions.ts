@@ -9,7 +9,8 @@ export const Types = {
     SHOW_QUOTE_FORM: 'SHOW_QUOTE_FORM',
     CREATE_NEW_QUOTE: 'CREATE_NEW_QUOTE',
     DELETE_QUOTE: 'DELETE_QUOTE',
-    DELETE_ITEM: 'DELETE_ITEM'
+    DELETE_ITEM: 'DELETE_ITEM',
+    FINALISE_AND_SEND_ITEM: 'FINALISE_AND_SEND_ITEM'
 }
 
 // REDUX ONLY:
@@ -33,8 +34,10 @@ export const createNewQuote = (quote: {}) => {
 
 // UPDATE
 export const updateDraftItem = (draftItem: {}) => {
-    console.log('updating')
     return {type: Types.UPDATE_DRAFT_ITEM, payload: draftItem}
+}
+export const finaliseAndSendDraftItem = (itemId: {}) => {
+    return {type: Types.FINALISE_AND_SEND_ITEM, payload: itemId}
 }
 
 // DELETE

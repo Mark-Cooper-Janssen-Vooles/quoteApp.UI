@@ -14,6 +14,7 @@ const Quote = (props: any) => {
         if (window.confirm("Are you sure you want to delete this quote?")) {
             props.deleteQuote(props.quote.id)
         }
+        props.getQuotesRequest(); // reload the dom
     }
 
     return (
@@ -44,7 +45,7 @@ const mapDispatchToProps = (dispatch: any) => {
     return {
         getQuotesRequest: () => dispatch(getQuotesRequest()),
         setItemFormActive: (show: boolean) => dispatch(setItemFormActive(show)),
-        deleteQuote: (quoteId: string) => dispatch(deleteQuote(quoteId))
+        deleteQuote: (quoteId: string) => dispatch(deleteQuote(quoteId)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Quote)

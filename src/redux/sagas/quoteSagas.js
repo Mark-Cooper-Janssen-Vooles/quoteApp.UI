@@ -65,6 +65,21 @@ function* updateDraftItemSaga({payload: quoteItem}) {
     }
 }
 
+// UPDATE finalise and send item WATCHER saga
+function* watchFinaliseAndSendItem() {
+    yield takeEvery(actions.Types.FINALISE_AND_SEND_ITEM, finaliseAndSendItemSaga)
+}
+function* finaliseAndSendItemSaga({payload: itemId}) {
+    try {
+        const result = yield call(api.finaliseAndSendItem, itemId)
+        //const quotes = result.data
+        //yield put(actions.getQuotesSuccess(quotes))
+    } catch (e) {
+        console.log("An error occured trying to finalise and send the item")
+        yield put(actions.quotesError("An error occured trying to finalise and send the item"))
+    }
+}
+
 // DELETE quote saga
 function* watchDeleteQuote() {
     yield takeEvery(actions.Types.DELETE_QUOTE, deleteQuoteSaga)
@@ -80,6 +95,7 @@ function* deleteQuoteSaga({payload: quoteId}) {
     }
 }
 
+// DELETE item saga
 function* watchDeleteItem() {
     yield takeEvery(actions.Types.DELETE_ITEM, deleteItemSaga)
 }
@@ -100,7 +116,8 @@ const quoteSagas = [
     fork(watchUpdateDraftItem),
     fork(watchCreateNewQuote),
     fork(watchDeleteQuote),
-    fork(watchDeleteItem)
+    fork(watchDeleteItem),
+    fork(watchFinaliseAndSendItem)
 ]
 
 export default quoteSagas

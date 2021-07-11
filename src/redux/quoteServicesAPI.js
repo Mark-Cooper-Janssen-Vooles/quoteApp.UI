@@ -47,6 +47,12 @@ export const updateDraftItem = (draftItem) => {
     }); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
 }
 
+export const finaliseAndSendItem = (itemId) => {
+    // put API post request here for adding new draft item
+    console.log(itemId);
+    return axios.put(`${baseUrl}/${itemId}089lkjjl`); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
+}
+
 export const deleteQuote = (quoteId) => {
     // put API post request here for adding new draft item
     console.log(quoteId);
