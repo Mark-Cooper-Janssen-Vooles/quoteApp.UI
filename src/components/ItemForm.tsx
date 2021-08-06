@@ -22,7 +22,7 @@ type Inputs = {
 
 interface IItemForm {
     mode: string,
-    quote: { id: string, Message: string, Price: string },
+    quote: { Id: string, Message: string, Price: string },
     setItemFormActive: (bool: boolean) => void,
     getQuotesRequest: () => void,
     createNewDraftItem: (draftItem: {}) => void,
@@ -35,7 +35,7 @@ const ItemForm: React.FC<IItemForm> = (props) => {
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         const draftItem = {
             ...data,
-            quoteId: props.quote.id
+            quoteId: props.quote.Id
         }
         removeItemForm(); // close itemForm
         saveDraftItem(draftItem); // save w/ redux saga call

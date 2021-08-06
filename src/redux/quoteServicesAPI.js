@@ -2,40 +2,53 @@ import axios from 'axios'
 //import { IQuote } from '../interfaces/quotes';
 
 // when using json-server:
-const baseUrl = 'http://localhost:3000/quotes'
+//const baseUrl = 'http://localhost:3001/quotes'
+
+// when using .net core app:
+const baseUrl = 'https://localhost:5001/api/quote/quotes'
 
 // when using .NET Core api:
 //const baseUrl = 'https://localhost:5001/api/QuoteItems'
 
+
 export const getQuotes = () => {
-    return axios.get(baseUrl) // use get to read!
+    // GET: /api/quote/quotes
+
+    return axios.get(`${baseUrl}`)
 }
 
-export const createNewDraftItem = (draftItem) => {
-    // put API post request here for adding new draft item
-    console.log(draftItem);
-    const draftItemToCreate = {
-        "amount": draftItem.amount,
-        "message": draftItem.message
-    }
-    return axios.post(`${baseUrl}/${draftItem.quoteId}`, { // use post to create!
-        ...draftItemToCreate
-    }); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
-}
 export const createNewQuote = (quote) => {
-    // put API post request here for adding new draft item
+    // POST: /api/quote/quotes
+
     console.log(quote);
     const quoteToCreate = {
         "name": quote.name,
         "email": quote.email
     }
-    return axios.post(`${baseUrl}/${quote}`, { // use post to create!
+    return axios.post(`${baseUrl}`, {
         ...quoteToCreate
     }); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
 }
 
+export const createNewDraftItem = (draftItem) => {
+    // POST: /api/quote/{quoteId}/newDraftItem
+
+    console.log(draftItem);
+    const quoteId = draftItem.quoteId;
+
+    const draftItemToCreate = {
+        "price": draftItem.amount,
+        "message": draftItem.message
+    }
+    // the below needs to be the quoteId, not the draft item id!
+    return axios.post(`${baseUrl}/${quoteId}/draft-item`, { // use post to create!
+        ...draftItemToCreate
+    }); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
+}
+
 export const updateDraftItem = (draftItem) => {
-    // put API post request here for adding new draft item
+    // /api/quote/{quoteId}/updateDraftItem/{draftItemId}
+
     console.log(draftItem);
     const draftItemToUpdate = {
         "amount": draftItem.amount,
@@ -48,19 +61,21 @@ export const updateDraftItem = (draftItem) => {
 }
 
 export const finaliseAndSendItem = (itemId) => {
-    // put API post request here for adding new draft item
+    // /api/quote/{quoteId}/finaliseAndSendItem/{draftItemId}
+
     console.log(itemId);
     return axios.put(`${baseUrl}/${itemId}089lkjjl`); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
 }
 
 export const deleteQuote = (quoteId) => {
-    // put API post request here for adding new draft item
+    // /api/quote/{quoteId}/delete
+
     console.log(quoteId);
     return axios.delete(`${baseUrl}/${quoteId}jiou9`); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
 }
 
 export const deleteItem = (itemId) => {
-    // put API post request here for adding new draft item
+    // /api/quote/{quoteId}/{draftItemId}/delete
     console.log(itemId);
     return axios.delete(`${baseUrl}/${itemId}jiou9`); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
 }
