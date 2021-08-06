@@ -19,16 +19,16 @@ const Quote = (props: any) => {
 
     return (
         <div data-testid="quote-info" style={{borderStyle: "solid", margin: "10px", padding: "5px", width: "80%"}}>
-            <p>{props.quote.Contact.Name}</p>
-            <p>{props.quote.Contact.Email}</p>
+            <p>{props.quote.contact.name}</p>
+            <p>{props.quote.contact.email}</p>
             <button onClick={showNewItemForm}>Add new draft item</button>
 
             {props.itemFormActive ?
-                <ItemForm quote={props.quote} mode={Mode.NEW_ITEM} />
+                <ItemForm item={props.quote} mode={Mode.NEW_ITEM} quoteId={''} />
                 : <></>}
 
-            {props.quote.DraftItems && <DraftItems draftItems={props.quote.DraftItems} quoteId={props.quote.id} style={{align: "left"}} />}
-            {props.quote.Items && <SentQuotes sentItems={props.quote.Items} style={{align: "left"}} />}
+            {props.quote.draftItems && <DraftItems draftItems={props.quote.draftItems} quoteId={props.quote.id} style={{align: "left"}} />}
+            {props.quote.items && <SentQuotes sentItems={props.quote.items} style={{align: "left"}} />}
             <p />
             <button onClick={deleteQuote}>Delete Quote</button>
             <p />

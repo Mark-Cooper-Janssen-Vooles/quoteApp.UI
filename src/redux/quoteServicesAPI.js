@@ -32,8 +32,6 @@ export const createNewQuote = (quote) => {
 
 export const createNewDraftItem = (draftItem) => {
     // POST: /api/quote/{quoteId}/newDraftItem
-
-    console.log(draftItem);
     const quoteId = draftItem.quoteId;
 
     const draftItemToCreate = {
@@ -47,15 +45,17 @@ export const createNewDraftItem = (draftItem) => {
 }
 
 export const updateDraftItem = (draftItem) => {
-    // /api/quote/{quoteId}/updateDraftItem/{draftItemId}
+    // PUT: api/quote/quotes/{id}/draft-item/{itemId}
+    const quoteId = draftItem.quoteId;
+    const itemId = draftItem.itemId;
 
     console.log(draftItem);
     const draftItemToUpdate = {
-        "amount": draftItem.amount,
+        "price": draftItem.amount,
         "message": draftItem.message,
         "id": draftItem.id
     }
-    return axios.put(`${baseUrl}/${draftItem.quoteId}`, { // use put to update!
+    return axios.put(`${baseUrl}/${quoteId}/draft-item/`, { // use put to update!
         ...draftItemToUpdate
     }); // this doesn't seem to work with json server, whatever for now! fix it when you get c# to run, call endpoint
 }

@@ -12,12 +12,12 @@ const DraftQuote = (props: any) => {
         <div className="quote-card">
             { showItemFormEdit ?
                 <div>
-                    <ItemForm quote={props.item} mode={Mode.EDIT_ITEM}/>
+                    <ItemForm item={props.item} quoteId={props.quoteId} mode={Mode.EDIT_ITEM}/>
                 </div>
                 :
                 <div>
-                    <p style={{textAlign: "left"}}>Message: {props.item.Message}</p>
-                    <p style={{textAlign: "left"}}>Price: {props.item.Price}</p>
+                    <p style={{textAlign: "left"}}>Message: {props.item.message}</p>
+                    <p style={{textAlign: "left"}}>Price: {props.item.price}</p>
                     <DraftQuoteActions itemId={props.item.id} />
                 </div>
             }
