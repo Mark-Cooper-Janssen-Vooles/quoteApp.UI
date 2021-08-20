@@ -97,9 +97,9 @@ function* deleteQuoteSaga({payload: quoteId}) {
 function* watchDeleteItem() {
     yield takeEvery(actions.Types.DELETE_ITEM, deleteItemSaga)
 }
-function* deleteItemSaga({payload: itemId}) {
+function* deleteItemSaga({payload: ids}) {
     try {
-        const result = yield call(api.deleteItem, itemId)
+        const result = yield call(api.deleteItem, ids)
         //const quotes = result.data
         //yield put(actions.getQuotesSuccess(quotes))
     } catch (e) {

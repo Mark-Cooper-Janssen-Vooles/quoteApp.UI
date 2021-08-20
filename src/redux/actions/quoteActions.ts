@@ -44,8 +44,8 @@ export const finaliseAndSendDraftItem = (ids: {}) => {
 export const deleteQuote = (quoteId: {}) => {
     return {type: Types.DELETE_QUOTE, payload: quoteId}
 }
-export const deleteItem = (itemId: {}) => {
-    return {type: Types.DELETE_ITEM, payload: itemId}
+export const deleteItem = (ids: {}) => {
+    return {type: Types.DELETE_ITEM, payload: ids}
 }
 
 export const quotesError = (error: string) => ({type: Types.QUOTES_ERROR, payload: error})

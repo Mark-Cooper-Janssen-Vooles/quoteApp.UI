@@ -23,7 +23,8 @@ const DraftQuoteActions = (props: any) => {
 
     const deleteItem = () => {
         if (window.confirm("Are you sure you want to delete this item?")) {
-            props.deleteItem(props.itemId)
+            const ids = { itemId: props.itemId, quoteId: props.quoteId }
+            props.deleteItem(ids)
         }
         props.getQuotesRequest(); // reload the dom
     }
@@ -54,7 +55,7 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => {
     return {
         setEditItemFormActive: (show: boolean) => dispatch(setEditItemFormActive(show)),
-        deleteItem: (itemId: string) => dispatch(deleteItem(itemId)),
+        deleteItem: (ids: {}) => dispatch(deleteItem(ids)),
         finaliseAndSendDraftItem: (ids: {}) => dispatch(finaliseAndSendDraftItem(ids)),
         getQuotesRequest: () => dispatch(getQuotesRequest()),
     }
