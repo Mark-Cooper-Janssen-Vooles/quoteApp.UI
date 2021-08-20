@@ -18,7 +18,7 @@ const DraftQuote = (props: any) => {
                 <div>
                     <p style={{textAlign: "left"}}>Message: {props.item.message}</p>
                     <p style={{textAlign: "left"}}>Price: {props.item.price}</p>
-                    <DraftQuoteActions itemId={props.item.id} />
+                    <DraftQuoteActions itemId={props.item.id} quoteId={props.quoteId}/>
                 </div>
             }
         </div>

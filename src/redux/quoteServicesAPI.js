@@ -56,12 +56,10 @@ export const updateDraftItem = (draftItem) => {
     });
 }
 
-export const finaliseAndSendItem = (itemId) => {
+export const finaliseAndSendItem = ({quoteId, itemId}) => {
     // /api/quote/{quoteId}/finaliseAndSendItem/{draftItemId}
 
-    //console.log(itemId);
-    return axios.put(`${baseUrl}/jkhhkjkjh`);
-    //return axios.put(`${baseUrl}/${quoteId}/draft-item/${itemId}/finalise/`);
+    return axios.put(`${baseUrl}/${quoteId}/draft-item/${itemId}/finalise/`);
 }
 
 export const deleteQuote = (quoteId) => {

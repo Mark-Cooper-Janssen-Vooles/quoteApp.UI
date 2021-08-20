@@ -69,11 +69,9 @@ function* updateDraftItemSaga({payload: quoteItem}) {
 function* watchFinaliseAndSendItem() {
     yield takeEvery(actions.Types.FINALISE_AND_SEND_ITEM, finaliseAndSendItemSaga)
 }
-function* finaliseAndSendItemSaga({payload: itemId}) {
+function* finaliseAndSendItemSaga({payload: ids}) {
     try {
-        const result = yield call(api.finaliseAndSendItem, itemId)
-        //const quotes = result.data
-        //yield put(actions.getQuotesSuccess(quotes))
+        yield call(api.finaliseAndSendItem, ids)
     } catch (e) {
         console.log("An error occured trying to finalise and send the item")
         yield put(actions.quotesError("An error occured trying to finalise and send the item"))

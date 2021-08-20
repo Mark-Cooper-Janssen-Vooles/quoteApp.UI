@@ -36,8 +36,8 @@ export const createNewQuote = (quote: {}) => {
 export const updateDraftItem = (draftItem: {}) => {
     return {type: Types.UPDATE_DRAFT_ITEM, payload: draftItem}
 }
-export const finaliseAndSendDraftItem = (itemId: {}) => {
-    return {type: Types.FINALISE_AND_SEND_ITEM, payload: itemId}
+export const finaliseAndSendDraftItem = (ids: {}) => {
+    return {type: Types.FINALISE_AND_SEND_ITEM, payload: ids}
 }
 
 // DELETE
