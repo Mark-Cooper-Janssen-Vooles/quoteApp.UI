@@ -26,7 +26,9 @@ const DraftQuoteActions = (props: any) => {
             const ids = { itemId: props.itemId, quoteId: props.quoteId }
             props.deleteItem(ids)
         }
-        props.getQuotesRequest(); // reload the dom
+        setTimeout(() => {
+            props.getQuotesRequest(); // hacky way to reload the dom
+        }, 1000)
     }
 
     const finaliseItem = () => {
@@ -34,7 +36,9 @@ const DraftQuoteActions = (props: any) => {
             const ids = { itemId: props.itemId, quoteId: props.quoteId }
             props.finaliseAndSendDraftItem(ids)
         }
-        props.getQuotesRequest(); // reload the dom
+        setTimeout(() => {
+            props.getQuotesRequest(); // hacky way to reload the dom
+        }, 1000)
     }
 
     return (

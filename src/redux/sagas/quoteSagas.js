@@ -10,7 +10,7 @@ function* watchGetQuotesRequest() {
 function* getQuotesSaga() {
     try {
         const result = yield call(api.getQuotes)
-        let quotes = result.data;
+        const quotes = result.data;
         yield put(actions.getQuotesSuccess(quotes))
     } catch (e) {
         console.log("An error occured trying to fetch the quotes")
@@ -25,9 +25,7 @@ function* watchCreateNewDraftItem() {
 // CREATE item worker saga
 function* createNewDraftItemSaga({payload: quoteItem}) {
     try {
-        const result = yield call(api.createNewDraftItem, quoteItem)
-        //const quotes = result.data
-        //yield put(actions.getQuotesSuccess(quotes))
+        yield call(api.createNewDraftItem, quoteItem)
     } catch (e) {
         console.log("An error occured trying to create the item")
         yield put(actions.quotesError("An error occured trying to create the item"))
@@ -40,9 +38,7 @@ function* watchCreateNewQuote() {
 }
 function* createNewQuoteSaga({payload: quote}) {
     try {
-        const result = yield call(api.createNewQuote, quote)
-        //const quotes = result.data
-        //yield put(actions.getQuotesSuccess(quotes))
+        yield call(api.createNewQuote, quote)
     } catch (e) {
         console.log("An error occured trying to create the quote")
         yield put(actions.quotesError("An error occured trying to create the quote"))
@@ -56,9 +52,7 @@ function* watchUpdateDraftItem() {
 // UPDATE item worker saga
 function* updateDraftItemSaga({payload: quoteItem}) {
     try {
-        const result = yield call(api.updateDraftItem, quoteItem)
-        //const quotes = result.data
-        //yield put(actions.getQuotesSuccess(quotes))
+        yield call(api.updateDraftItem, quoteItem)
     } catch (e) {
         console.log("An error occured trying to update the item")
         yield put(actions.quotesError("An error occured trying to update the item"))
@@ -84,9 +78,7 @@ function* watchDeleteQuote() {
 }
 function* deleteQuoteSaga({payload: quoteId}) {
     try {
-        const result = yield call(api.deleteQuote, quoteId)
-        //const quotes = result.data
-        //yield put(actions.getQuotesSuccess(quotes))
+        yield call(api.deleteQuote, quoteId) // this should be 'take'
     } catch (e) {
         console.log("An error occured trying to delete the quote")
         yield put(actions.quotesError("An error occured trying to delete the quote"))
@@ -99,9 +91,7 @@ function* watchDeleteItem() {
 }
 function* deleteItemSaga({payload: ids}) {
     try {
-        const result = yield call(api.deleteItem, ids)
-        //const quotes = result.data
-        //yield put(actions.getQuotesSuccess(quotes))
+        yield call(api.deleteItem, ids) // this should be 'take'
     } catch (e) {
         console.log("An error occured trying to delete the item")
         yield put(actions.quotesError("An error occured trying to delete the item"))

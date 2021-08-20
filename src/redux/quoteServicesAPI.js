@@ -6,8 +6,8 @@ import axios from 'axios'
 // when using .net core app:
 const baseUrl = 'https://localhost:5001/api/quote/quotes'
 
-
 export const getQuotes = () => {
+    console.log('getting quotes from API');
     return axios.get(`${baseUrl}`)
 }
 

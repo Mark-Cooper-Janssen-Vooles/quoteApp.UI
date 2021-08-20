@@ -53,7 +53,9 @@ const ItemForm: React.FC<IItemForm> = (props) => {
 
         removeItemForm(); // close itemForm
         saveDraftItem(draftItem); // save w/ redux saga call
-        props.getQuotesRequest(); //re-fetch quotes
+        setTimeout(() => {
+            props.getQuotesRequest(); // hacky way to reload the dom
+        }, 1000)
     };
 
     const removeItemForm = () => {
