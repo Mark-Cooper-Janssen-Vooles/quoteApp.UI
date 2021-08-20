@@ -42,10 +42,12 @@ const ItemForm: React.FC<IItemForm> = (props) => {
             }
         }
         if (props.mode === Mode.EDIT_ITEM) {
+            console.log(props.item);
             draftItem = {
                 message: props.item.message,
                 amount: data.amount,
-                quoteId: props.quoteId
+                quoteId: props.quoteId,
+                id: props.item.id
             }
         }
 

@@ -29,6 +29,7 @@ const DraftQuoteActions = (props: any) => {
     }
 
     const finaliseItem = () => {
+        console.log(props);
         if (window.confirm("Are you sure you want finalise this item and send an email?")) {
             props.finaliseAndSendDraftItem(props.itemId)
         }
