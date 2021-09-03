@@ -8,7 +8,6 @@ phases:
     commands:
       - echo in the pre_build phase...
       - npm install
-      # - npm install -g serve
   build:
     commands:
       - echo Build started on `date`
@@ -17,10 +16,9 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+
 artifacts:
   files:
-    - public/**/*
-    - src/**/* #should this be build?
-    - package.json
-    - babel.config.json
-    #- appspec.yml
+    - '**/*'
+  discard-paths: no
+  base-directory: build
