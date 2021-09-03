@@ -8,7 +8,6 @@ export const Types = {
     UPDATE_DRAFT_ITEM: 'UPDATE_DRAFT_ITEM',
     SHOW_QUOTE_FORM: 'SHOW_QUOTE_FORM',
     CREATE_NEW_QUOTE: 'CREATE_NEW_QUOTE',
-    CREATE_NEW_QUOTE_DOM: 'CREATE_NEW_QUOTE_DOM',
     DELETE_QUOTE: 'DELETE_QUOTE',
     DELETE_ITEM: 'DELETE_ITEM',
     FINALISE_AND_SEND_ITEM: 'FINALISE_AND_SEND_ITEM'
@@ -31,9 +30,6 @@ export const createNewDraftItem = (draftItem: {}) => {
 }
 export const createNewQuote = (quote: {}) => {
     return {type: Types.CREATE_NEW_QUOTE, payload: quote}
-}
-export const createNewQuoteUpdateDom = (quote: {}) => {
-    return {type: Types.CREATE_NEW_QUOTE_DOM, payload: quote}
 }
 
 // UPDATE

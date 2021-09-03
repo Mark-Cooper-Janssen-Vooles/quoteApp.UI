@@ -24,17 +24,6 @@ interface IActions {
 //reducer
 const quoteReducer = (state = initialState, action: IActions) => {
     switch(action.type) {
-        case Types.CREATE_NEW_QUOTE_DOM:
-            // need to be passing the quoteId in the payload here!
-            // find the currentQuote, iterate through existing quotesState, add the new draftItem to that array, update the state
-            //const currentQuote =
-            console.log(action.payload);
-            console.log(...state.quotes);
-            const newQuote = { contact: action.payload, id: '', items: [], draftItems: [] }
-            return {
-                ...state,
-                quotes: [...state.quotes, newQuote]
-            }
         case Types.SHOW_ITEM_FORM:
             return {
                 ...state,
@@ -46,11 +35,6 @@ const quoteReducer = (state = initialState, action: IActions) => {
                 itemFormEditActive: action.payload
             }
         case Types.GET_QUOTES_SUCCESS:
-            console.log('quote reducer:');
-            console.log({
-                ...state,
-                quotes: action.payload
-            });
             return {
                 ...state,
                 quotes: action.payload

@@ -7,7 +7,6 @@ import axios from 'axios'
 const baseUrl = 'https://localhost:5001/api/quote/quotes'
 
 export const getQuotes = () => {
-    console.log('getting quotes from API');
     return axios.get(`${baseUrl}`)
 }
 
@@ -38,7 +37,6 @@ export const updateDraftItem = (draftItem) => {
     const quoteId = draftItem.quoteId;
     const itemId = draftItem.itemId;
 
-    console.log(draftItem);
     const draftItemToUpdate = {
         "price": draftItem.amount,
         "message": draftItem.message,

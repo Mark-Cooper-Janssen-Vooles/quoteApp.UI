@@ -1,7 +1,7 @@
 import React from 'react'
 import './QuoteCard.css'
 import {
-    createNewQuote, createNewQuoteUpdateDom,
+    createNewQuote,
     getQuotesRequest,
     setQuoteFormActive
 } from "../redux/actions/quoteActions";
@@ -17,7 +17,6 @@ interface IQuoteForm {
     setQuoteFormActive: (bool: boolean) => void,
     getQuotesRequest: () => void,
     createNewQuote: (quote: {}) => void,
-    createNewQuoteUpdateDom: (quote: {}) => void
 }
 
 const QuoteForm: React.FC<IQuoteForm> = (props) => {
@@ -28,10 +27,6 @@ const QuoteForm: React.FC<IQuoteForm> = (props) => {
         }
         removeQuoteForm();
         saveQuote(quote);
-        setTimeout(() => {
-            props.getQuotesRequest(); // hacky way to reload the dom
-        }, 1000)
-        // props.createNewQuoteUpdateDom(quote); => ths doesn't work. don't wanna sink too much time into it
     };
 
     const removeQuoteForm = () => {
@@ -68,7 +63,6 @@ const mapDispatchToProps = (dispatch: any) => {
         setQuoteFormActive: (show: boolean) => dispatch(setQuoteFormActive(show)),
         getQuotesRequest: () => dispatch(getQuotesRequest()),
         createNewQuote: (quote: {}) => dispatch(createNewQuote(quote)),
-        createNewQuoteUpdateDom: (quote: {}) => dispatch(createNewQuoteUpdateDom(quote)),
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(QuoteForm)

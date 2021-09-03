@@ -1,6 +1,7 @@
 import { takeEvery, takeLatest, take, call, fork, put } from 'redux-saga/effects'
 import * as api from '../quoteServicesAPI'
 import * as actions from '../actions/quoteActions'
+import { getQuotesRequest } from '../actions/quoteActions';
 
 // READ watcher saga
 function* watchGetQuotesRequest() {
@@ -25,7 +26,11 @@ function* watchCreateNewDraftItem() {
 // CREATE item worker saga
 function* createNewDraftItemSaga({payload: quoteItem}) {
     try {
-        yield call(api.createNewDraftItem, quoteItem)
+        const result = yield call(api.createNewDraftItem, quoteItem)
+        console.log(result)
+        if (result.status === 200) {
+            yield put(getQuotesRequest());
+        }
     } catch (e) {
         console.log("An error occured trying to create the item")
         yield put(actions.quotesError("An error occured trying to create the item"))
@@ -38,7 +43,10 @@ function* watchCreateNewQuote() {
 }
 function* createNewQuoteSaga({payload: quote}) {
     try {
-        yield call(api.createNewQuote, quote)
+        const result = yield call(api.createNewQuote, quote)
+        if (result.status === 200) {
+            yield put(getQuotesRequest());
+        }
     } catch (e) {
         console.log("An error occured trying to create the quote")
         yield put(actions.quotesError("An error occured trying to create the quote"))
@@ -52,7 +60,10 @@ function* watchUpdateDraftItem() {
 // UPDATE item worker saga
 function* updateDraftItemSaga({payload: quoteItem}) {
     try {
-        yield call(api.updateDraftItem, quoteItem)
+        const result = yield call(api.updateDraftItem, quoteItem)
+        if (result.status === 200) {
+            yield put(getQuotesRequest());
+        }
     } catch (e) {
         console.log("An error occured trying to update the item")
         yield put(actions.quotesError("An error occured trying to update the item"))
@@ -65,7 +76,10 @@ function* watchFinaliseAndSendItem() {
 }
 function* finaliseAndSendItemSaga({payload: ids}) {
     try {
-        yield call(api.finaliseAndSendItem, ids)
+        const result = yield call(api.finaliseAndSendItem, ids)
+        if (result.status === 200) {
+            yield put(getQuotesRequest());
+        }
     } catch (e) {
         console.log("An error occured trying to finalise and send the item")
         yield put(actions.quotesError("An error occured trying to finalise and send the item"))
@@ -78,7 +92,10 @@ function* watchDeleteQuote() {
 }
 function* deleteQuoteSaga({payload: quoteId}) {
     try {
-        yield call(api.deleteQuote, quoteId) // this should be 'take'
+        const result = yield call(api.deleteQuote, quoteId) // this should be 'take'
+        if (result.status === 200) {
+            yield put(getQuotesRequest());
+        }
     } catch (e) {
         console.log("An error occured trying to delete the quote")
         yield put(actions.quotesError("An error occured trying to delete the quote"))
@@ -91,7 +108,11 @@ function* watchDeleteItem() {
 }
 function* deleteItemSaga({payload: ids}) {
     try {
-        yield call(api.deleteItem, ids) // this should be 'take'
+        const result = yield call(api.deleteItem, ids) // this should be 'take'
+        if (result.status === 200) {
+            console.log('deleting item')
+            yield put(getQuotesRequest());
+        }
     } catch (e) {
         console.log("An error occured trying to delete the item")
         yield put(actions.quotesError("An error occured trying to delete the item"))

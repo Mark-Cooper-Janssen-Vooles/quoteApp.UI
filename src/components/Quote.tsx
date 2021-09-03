@@ -14,9 +14,6 @@ const Quote = (props: any) => {
         if (window.confirm("Are you sure you want to delete this quote?")) {
             props.deleteQuote(props.quote.id)
         }
-        setTimeout(() => {
-            props.getQuotesRequest(); // hacky way to reload the dom
-        }, 1000)
     }
 
     return (
