@@ -4,7 +4,10 @@ import axios from 'axios'
 //const baseUrl = 'http://localhost:3001/quotes'
 
 // when using .net core app:
-const baseUrl = 'https://localhost:5001/api/quote/quotes'
+//const baseUrl = 'https://localhost:5001/api/quote/quotes'
+
+// prod:
+const baseUrl = 'http://quoteappbackend-env.eba-pepwptrw.ap-southeast-2.elasticbeanstalk.com/api/quote/quotes'
 
 export const getQuotes = () => {
     return axios.get(`${baseUrl}`)
